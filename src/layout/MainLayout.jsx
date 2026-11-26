@@ -10,10 +10,12 @@ const DRAWER_WIDTH = 250;
 const drawerPaperSx = {
   width: DRAWER_WIDTH,
   boxSizing: 'border-box',
-  backgroundColor: '#0f172a',
+  background: 'linear-gradient(165deg, rgba(24, 39, 72, 0.94), rgba(17, 29, 56, 0.97))',
   color: '#ffffff',
-  border: 'none',
+  border: '1px solid rgba(255,255,255,0.12)',
   borderRadius: 0,
+  boxShadow: '8px 0 34px rgba(26, 43, 78, 0.12)',
+  backdropFilter: 'blur(28px) saturate(150%)',
 };
 
 export default function MainLayout() {
@@ -23,7 +25,7 @@ export default function MainLayout() {
   const closeDrawer = () => setMobileOpen(false);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       <Header
         title={getPageTitle(pathname)}
         drawerWidth={DRAWER_WIDTH}
@@ -31,7 +33,6 @@ export default function MainLayout() {
       />
 
       <Box component="nav" sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}>
-        {/* Slide-out drawer for tablet / small screens */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -45,7 +46,6 @@ export default function MainLayout() {
           <Sidebar onNavigate={closeDrawer} />
         </Drawer>
 
-        {/* Always-visible sidebar for desktop */}
         <Drawer
           variant="permanent"
           open
@@ -64,11 +64,12 @@ export default function MainLayout() {
           flexGrow: 1,
           p: { xs: 2, md: 3 },
           minWidth: 0,
+          minHeight: '100vh',
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
         }}
       >
-        <Toolbar /> {/* spacer so content starts below the fixed header */}
-        <Box sx={{ maxWidth: 1400, mx: 'auto' }}>
+        <Toolbar />
+        <Box sx={{ maxWidth: 1480, mx: 'auto' }}>
           <Outlet />
         </Box>
       </Box>
