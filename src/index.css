@@ -1,3 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #172033;
+  background: #eef3fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; background: #eef3fb; }
 body {
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(180, 205, 255, .42), transparent 34%),
+    radial-gradient(ellipse at 92% 18%, rgba(209, 222, 255, .52), transparent 32%),
+    linear-gradient(135deg, #f4f7fd 0%, #edf2fa 52%, #f7f8fc 100%);
+  background-attachment: fixed;
+}
+button, input, textarea, select { font: inherit; }
+::selection { color: #163b91; background: rgba(111, 157, 255, .22); }
+#root { min-height: 100vh; }
+
+.app-shell { min-height: 100vh; }
+.app-main { position: relative; min-height: 100vh; }
+.app-main-content { width: 100%; padding-bottom: 40px; }
+.app-sidebar {
+  color: #24314b;
+  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(245,248,255,.78));
+}
+.app-sidebar .MuiTypography-root { color: inherit; }
+.app-sidebar .MuiTypography-root[variant="overline"] {
+  color: #8b97ad;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}
+.app-sidebar .MuiListItemButton-root {
+  color: #68758d;
+  min-height: 44px;
+  margin: 4px 14px;
+  padding: 9px 13px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.app-sidebar .MuiListItemButton-root:hover {
+  color: #243b69;
+  background: rgba(255,255,255,.74);
+  border-color: rgba(255,255,255,.9);
+  transform: translateX(2px);
+}
+.app-sidebar .MuiListItemButton-root.Mui-selected {
+  color: #2456c7;
+  background: linear-gradient(135deg, rgba(222,234,255,.96), rgba(239,245,255,.88));
+  border-color: rgba(125,164,245,.24);
+  box-shadow: 0 5px 18px rgba(66,111,202,.09), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.app-sidebar .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root { color: #3568d4; }
+.app-sidebar .MuiListItemIcon-root { color: inherit; min-width: 36px; }
+.app-sidebar .MuiListItemText-primary { font-size: 13px; font-weight: 600; }
+.app-sidebar .sidebar-brand-mark {
+  background: linear-gradient(145deg, #7ba7ff, #456fe0);
+  box-shadow: 0 8px 18px rgba(71,116,218,.25);
+}
+.app-sidebar .sidebar-footer {
+  border-top: 1px solid rgba(132,151,184,.16);
+  color: #8a96aa;
+}
+
+.app-header.MuiAppBar-root {
+  color: #1d2940;
+  background: rgba(249,251,255,.72);
+  border-bottom: 1px solid rgba(255,255,255,.82);
+  box-shadow: 0 8px 30px rgba(57,78,117,.045);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+}
+.app-header .MuiToolbar-root { min-height: 72px; }
+.app-header .MuiTypography-h6 { font-size: 1.08rem; font-weight: 700; letter-spacing: -.025em; }
+.app-header .MuiTypography-body2 { color: #8290a8; font-size: .78rem; font-weight: 500; }
+
+.app-main .MuiPaper-root {
+  border: 1px solid rgba(255,255,255,.88);
+  border-radius: 20px;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 12px 34px rgba(39,58,96,.055), inset 0 1px 0 rgba(255,255,255,.92);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+.app-main .MuiButton-root {
+  min-height: 38px;
+  border-radius: 12px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.app-main .MuiButton-contained {
+  color: #fff;
+  background: linear-gradient(135deg, #5d8df4, #3869d7);
+  box-shadow: 0 7px 16px rgba(61,108,218,.2);
+}
+.app-main .MuiButton-contained:hover {
+  background: linear-gradient(135deg, #4e80e9, #2f5fc9);
+  box-shadow: 0 9px 20px rgba(61,108,218,.26);
+  transform: translateY(-1px);
+}
+.app-main .MuiButton-outlined {
+  border-color: rgba(112,137,181,.26);
+  background: rgba(255,255,255,.56);
+}
+.app-main .MuiOutlinedInput-root {
+  border-radius: 12px;
+  background: rgba(255,255,255,.76);
+}
+.app-main .MuiOutlinedInput-notchedOutline { border-color: rgba(139,157,190,.28); }
+.app-main .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline { border-color: rgba(91,132,213,.55); }
+.app-main .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #6d93e8;
+  border-width: 1.5px;
+  box-shadow: 0 0 0 3px rgba(109,147,232,.12);
+}
+.app-main .MuiTableContainer-root { border-radius: 16px; }
+.app-main .MuiTableHead-root .MuiTableCell-root {
+  color: #71809a;
+  background: rgba(239,244,252,.78);
+  font-size: .72rem;
+  font-weight: 750;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.app-main .MuiTableCell-root { border-bottom-color: rgba(139,157,190,.13); }
+.app-main .MuiTableBody-root .MuiTableRow-root:hover { background: rgba(234,241,255,.48); }
+.app-main .MuiChip-root { border-radius: 9px; font-weight: 650; }
+.app-main .MuiTabs-indicator { height: 3px; border-radius: 3px; }
+.app-main .MuiDialog-paper {
+  border: 1px solid rgba(255,255,255,.92);
+  border-radius: 22px;
+  background: rgba(250,252,255,.92);
+  box-shadow: 0 24px 70px rgba(34,49,81,.2);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+.app-main .MuiAlert-root { border-radius: 14px; }
+.app-main .MuiIconButton-root { border-radius: 11px; }
+.app-main .MuiPaginationItem-root { border-radius: 10px; }
+
+@media (max-width: 899px) {
+  .app-main { padding-left: 16px; padding-right: 16px; }
+  .app-header .MuiToolbar-root { min-height: 64px; }
+}
+@media (max-width: 599px) {
+  .app-main .MuiPaper-root { border-radius: 16px; }
+  .app-main .MuiTableCell-root { padding: 10px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }

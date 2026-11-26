@@ -5,15 +5,18 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import { getPageTitle } from './navItems';
 
-const DRAWER_WIDTH = 250;
+const DRAWER_WIDTH = 258;
 
 const drawerPaperSx = {
   width: DRAWER_WIDTH,
   boxSizing: 'border-box',
-  backgroundColor: '#0f172a',
-  color: '#ffffff',
-  border: 'none',
+  background: 'rgba(247, 250, 255, 0.82)',
+  color: '#24314b',
+  border: '1px solid rgba(255,255,255,.9)',
   borderRadius: 0,
+  boxShadow: '10px 0 38px rgba(52, 76, 122, .055)',
+  backdropFilter: 'blur(26px) saturate(160%)',
+  WebkitBackdropFilter: 'blur(26px) saturate(160%)',
 };
 
 export default function MainLayout() {
@@ -23,7 +26,7 @@ export default function MainLayout() {
   const closeDrawer = () => setMobileOpen(false);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className="app-shell" sx={{ display: 'flex' }}>
       <Header
         title={getPageTitle(pathname)}
         drawerWidth={DRAWER_WIDTH}
@@ -31,7 +34,6 @@ export default function MainLayout() {
       />
 
       <Box component="nav" sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}>
-        {/* Slide-out drawer for tablet / small screens */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -45,7 +47,6 @@ export default function MainLayout() {
           <Sidebar onNavigate={closeDrawer} />
         </Drawer>
 
-        {/* Always-visible sidebar for desktop */}
         <Drawer
           variant="permanent"
           open
@@ -60,15 +61,16 @@ export default function MainLayout() {
 
       <Box
         component="main"
+        className="app-main"
         sx={{
           flexGrow: 1,
-          p: { xs: 2, md: 3 },
+          p: { xs: 2, md: 3.5 },
           minWidth: 0,
           width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
         }}
       >
-        <Toolbar /> {/* spacer so content starts below the fixed header */}
-        <Box sx={{ maxWidth: 1400, mx: 'auto' }}>
+        <Toolbar />
+        <Box className="app-main-content" sx={{ maxWidth: 1480, mx: 'auto' }}>
           <Outlet />
         </Box>
       </Box>

@@ -12,25 +12,24 @@ const todayText = () =>
 export default function Header({ title, drawerWidth, onMenuClick }) {
   return (
     <AppBar
+      className="app-header"
       position="fixed"
       elevation={0}
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         ml: { md: `${drawerWidth}px` },
-        bgcolor: '#ffffff',
         color: 'text.primary',
         border: 'none',
-        borderBottom: '1px solid',
-        borderColor: 'divider',
+        borderBottom: '1px solid rgba(255,255,255,.82)',
         borderRadius: 0,
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ px: { xs: 2, md: 3.5 } }}>
         <IconButton
           edge="start"
           aria-label="open navigation"
           onClick={onMenuClick}
-          sx={{ mr: 2, display: { md: 'none' } }}
+          sx={{ mr: 2, display: { md: 'none' }, color: '#536b9c' }}
         >
           <MenuIcon />
         </IconButton>
