@@ -17,15 +17,17 @@ export default function Header({ title, drawerWidth, onMenuClick }) {
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         ml: { md: `${drawerWidth}px` },
-        bgcolor: '#ffffff',
+        background: 'rgba(248, 250, 255, 0.68)',
         color: 'text.primary',
         border: 'none',
-        borderBottom: '1px solid',
-        borderColor: 'divider',
+        borderBottom: '1px solid rgba(255,255,255,0.8)',
         borderRadius: 0,
+        boxShadow: '0 8px 28px rgba(38,57,94,0.045)',
+        backdropFilter: 'blur(24px) saturate(170%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(170%)',
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ minHeight: { xs: 64, sm: 72 } }}>
         <IconButton
           edge="start"
           aria-label="open navigation"
@@ -39,7 +41,7 @@ export default function Header({ title, drawerWidth, onMenuClick }) {
         </Typography>
         <Typography
           variant="body2"
-          sx={{ display: { xs: 'none', sm: 'block' }, color: 'text.secondary' }}
+          sx={{ display: { xs: 'none', sm: 'block' }, color: 'text.secondary', fontWeight: 500 }}
         >
           {todayText()}
         </Typography>
